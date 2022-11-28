@@ -1,0 +1,60 @@
+$dark-blue : #4b49ac;
+$medium-blue : #7da0fa;
+$light-blue : #98bdff;
+$medium-Purple : #a578e9;
+$light-Purple : #ad78e9;
+$light-orange : #f3797e;
+$light-color: #fff;
+
+body{
+    line-height: 1.5rem;
+}
+
+.header{
+    height: 80px;
+    background-color: $light-color;
+    &-logo i{
+        font-size: 28px;
+        font-weight: bold;
+    }
+}
+
+.sidebar ul{
+    padding: 0;
+}
+
+.sidebar li{
+    padding: 0.3rem 0.8rem;
+    width: 100%;
+}
+
+.sidebar li:hover{
+    background-color: $medium-Purple;
+    color: $light-color;
+    a{
+        color: $light-color !important;
+    }
+}
+
+.sidebarTitle{
+    color: $dark-blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card{
+    color: $light-color !important;
+    border-radius: 15px;
+    &.card1{
+        background-color: $medium-blue;
+    }
+    &.card2{
+        background-color: $medium-Purple;
+    }
+    &.card3{
+        background-color: $light-orange;
+    }
+    &.card4{
+        background-color: $light-Purple;
+    }
+}

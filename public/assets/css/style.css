@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'vazir';
+    src: url('../font/fontawesome-webfont.woff') format('woff');
+}
+
+body{
+    font-family: 'vazir' !important ;
+    background-color: rgb(248,249,250) !important;
+    direction: rtl;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+ul{
+    list-style-type: none;
+}
+
+/* header */
+
+.profile-img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.header-logo i{
+    font-size: 26px;
+}
+
+/* header */
+
+/* sidebar */
+
+.sidebar{
+    width: 220px;
+    position: fixed;
+    top: 73px;
+    min-height: 703px;
+    height: auto;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.sidebarTitle{
+    color: black;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.sidebaritem{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* sidebar */
+
+/* main */
+
+.main{
+    width: 1316px;
+    position: fixed;
+    height: auto;
+    min-height: 703px;
+    right: 220px;
+    top: 73px;
+}
+
+.content{
+    height: 600px;
+}
+
+.card{
+    width: 19rem;
+    height: 12rem;
+}
+
+.saleTable{
+    width: 600px;
+}
+
+.myChart{
+    width: 500px;
+    height: 400px;
+}
+
+/* category product */
+
+.add-product{
+    font-size: 26px;
+}
+
+/* main */
