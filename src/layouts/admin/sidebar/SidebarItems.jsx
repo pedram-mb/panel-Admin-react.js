@@ -8,7 +8,7 @@ const SidebarItems = ({ title, targetPath, icon }) => {
         <span>
           <i className={icon}></i>
         </span>
-        <NavLink className="sidebaritem ps-3" to={targetPath}>{title}</NavLink>
+        <NavLink className={(active)=> active.isActive ? "sidebaritem ps-3 active" : "sidebaritem ps-3"} to={targetPath}>{title}</NavLink>
       </li>
     </>
   );

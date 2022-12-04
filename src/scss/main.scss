@@ -1,3 +1,4 @@
+$dark-color : #000;
 $dark-blue : #4b49ac;
 $medium-blue : #7da0fa;
 $light-blue : #98bdff;
@@ -28,12 +29,20 @@ body{
     width: 100%;
 }
 
+.sidebar li a{
+    color: #292826;
+}
+
 .sidebar li:hover{
     background-color: $medium-Purple;
     color: $light-color;
     a{
         color: $light-color !important;
     }
+}
+
+.active{
+    color: $dark-color !important;
 }
 
 .sidebarTitle{
