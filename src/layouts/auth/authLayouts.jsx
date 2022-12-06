@@ -7,7 +7,7 @@ const AuthLayouts = ()=>{
             <div className="container-login100">
                 <div className="wrap-login100">
                     <Routes>
-                        <Route path="/login" element={<Login />}/>
+                        <Route path="/auth/login" element={<Login />}/>
                     </Routes>
                 </div>
             </div>
