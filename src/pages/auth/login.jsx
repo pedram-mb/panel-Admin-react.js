@@ -5,14 +5,15 @@ import "./login.css";
 import img from "../../image/img-01.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "../../utils/alert";
+import swal from "sweetalert";
 
 const initialValues = {
   phone: "",
   password: "",
   rememberMe: "",
 };
-const onSubmit = (values , navigate) => {
-//   console.log(values);
+const onSubmit = (values , submitMethods , navigate) => {
   axios.post('https://ecomadminapi.azhadev.ir/api/auth/login' , {
     ...values,
     rememberMe : values.rememberMe ? 1 : 0
@@ -21,7 +22,13 @@ const onSubmit = (values , navigate) => {
     if(res.status === 200){
       localStorage.setItem('loginToken' , JSON.stringify(res.data))
       navigate('/')
+      submitMethods.isSubmitting(false)
+    }else{
+      swal("خطا", res.data.message, "error");
+      submitMethods.isSubmitting(false)
     }
+  }).catch(e =>{
+
   })
 };
 const validationSchema = Yup.object({
@@ -39,7 +46,7 @@ const Login = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values)=>onSubmit(values , navigate)}
+      onSubmit={(values , submitMethods)=>onSubmit(values , submitMethods , navigate)}
       validationSchema={validationSchema}
     >
       {(formik) => {
@@ -71,7 +78,11 @@ const Login = () => {
               </label>
 
               <div className="container-login100-form-btn">
-                <button className="login100-form-btn">ورود</button>
+                <button className="login100-form-btn" disabled={formik.isSubmitting}>
+                  {
+                  formik.isSubmitting ? "لطفا صبر کنید ..." : "ورود"
+                  }
+                </button>
               </div>
             </Form>
 

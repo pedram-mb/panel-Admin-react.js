@@ -3,22 +3,22 @@ import { useEffect, useState } from "react";
 
 export const useIsLogin = () => {
   const [login, setIsLogin] = useState(false);
-  const [loading, setIsLoadin] = useState(false);
+  const [loading, setIsLoadin] = useState(true);
   useEffect(() => {
-    const loginToken = JSON.parse(localStorage.getItem("loginToken"));
+    const loginToken = JSON.parse(localStorage.getItem('loginToken'));
+
     if (loginToken) {
-      axios
-        .get("https://ecomadminapi.azhadev.ir/api/auth/user", {
+      axios.get('https://ecomadminapi.azhadev.ir/api/auth/user', {
           headers: {
             'Authorization': `Bearer${loginToken.token}`,
           },
         })
-        .then((res) => {
+        .then(res => {
           setIsLogin(res.status === 200 ? true : false);
           setIsLoadin(false);
         })
         .catch((e) => {
-        //   localStorage.removeItem("loginToken");
+          // localStorage.removeItem("loginToken");
           setIsLogin(false);
           setIsLoadin(false);
         });
