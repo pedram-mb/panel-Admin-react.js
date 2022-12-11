@@ -10,7 +10,7 @@ const Index = () => {
   const [login, loading] = useIsLogin();
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <h1 className="text-center">شکیبا باشید ...</h1>
       ) : login ? (
         <>
@@ -19,12 +19,12 @@ const Index = () => {
 
       ) : (
         <Navigate to={"/auth/login"} />
-      )}
-      {/* <>
+      )} */}
+      <>
         <Navbar /> 
         <Sidebar /> 
         <Content />
-      </> */}
+      </>
     </>
   );
 };

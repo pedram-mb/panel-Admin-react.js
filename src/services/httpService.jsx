@@ -1,17 +1,16 @@
 import axios from "axios";
-import config from "./config.json";
+import config from "./config.json"
 
-const httpService = (url , methods , data=null)=>{
+const httpService = (url, method, data=null)=>{
     const tokenInfo = JSON.parse(localStorage.getItem('loginToken'))
     return axios({
-        url : config.onlineApi+url,
-        methods,
+        url: config.onlineApi+url,
+        method,
         data,
-        headers : {
+        headers:{
             Authorization : tokenInfo ? `Bearer ${tokenInfo.token}` : null,
-            "content-type" : "application/json",
+            "Content-Type" : "application/json"
         }
     })
 }
-
-export default httpService;
+export default httpService

@@ -6,26 +6,26 @@ import img from "../../image/img-01.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import { LoginServices } from "../../services/auth";
+import { loginService } from "../../services/auth";
 
 const initialValues = {
   phone: "",
   password: "",
   rememberMe: "",
 };
-const onSubmit = (values , submitMethods , navigate) => {
-  try{
-    const res = LoginServices(values)
-    if(res.status === 200){
-      localStorage.setItem('loginToken' , JSON.stringify(res.data))
-      navigate('/')
-    }else{
-      swal("متاسفم", res.data.message, "error");
+const onSubmit = async (values , submitMethods , navigate) => {
+  try {
+    const res = await loginService(values);
+    if (res.status === 200) {
+      localStorage.setItem("loginToken", JSON.stringify(res.data));
+      navigate("/");
+    } else {
+      swal("متاسفم...!", res.data.message, "error");
     }
-    submitMethods.setSubmitting(false)
-  }catch(error){
-    swal("خطا", "اتفاق بدی افتاده است" , "error");
-    submitMethods.setSubmitting(false)
+    submitMethods.setSubmitting(false);
+  } catch (error) {
+    submitMethods.setSubmitting(false);
+    swal("متاسفم...!", "متاسفانه مشکلی از سمت سرور رخ داده", "error");
   }
 };
 
