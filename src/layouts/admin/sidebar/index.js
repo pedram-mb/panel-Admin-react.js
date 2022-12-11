@@ -5,7 +5,6 @@ import SidebarItems from "./SidebarItems";
 
 const Sidebar = () => {
   const {showSidebar} = useContext(AdminContext)
-// console.log(showSidebar);
   return (
     <div className="sidebar bg-white" style={showSidebar ? {right : "-210"} : {}}>
       <ul className="mt-1">

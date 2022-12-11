@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const LeftContent = ()=>{
     return(
         <>
@@ -23,9 +25,9 @@ const LeftContent = ()=>{
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="digikala.com">
+                    <Link to="/auth/login" className="dropdown-item">
                       خروج از حساب کاربری
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

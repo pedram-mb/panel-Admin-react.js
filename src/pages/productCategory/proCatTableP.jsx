@@ -31,7 +31,6 @@ const ProCatTableP = ()=>{
       ];
 
       const aditionalElements = (itemId)=>{
-        console.log(itemId);
         return(
             <>
                 <i className="bi bi-plus-square"></i>

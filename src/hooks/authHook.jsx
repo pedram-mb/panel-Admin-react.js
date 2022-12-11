@@ -18,7 +18,7 @@ export const useIsLogin = () => {
           setIsLoadin(false);
         })
         .catch((e) => {
-          // localStorage.removeItem("loginToken");
+          localStorage.removeItem("loginToken");
           setIsLogin(false);
           setIsLoadin(false);
         });

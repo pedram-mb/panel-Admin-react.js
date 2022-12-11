@@ -5,8 +5,8 @@ import "./login.css";
 import img from "../../image/img-01.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "../../utils/alert";
 import swal from "sweetalert";
+import { LoginServices } from "../../services/auth";
 
 const initialValues = {
   phone: "",
@@ -14,23 +14,21 @@ const initialValues = {
   rememberMe: "",
 };
 const onSubmit = (values , submitMethods , navigate) => {
-  axios.post('https://ecomadminapi.azhadev.ir/api/auth/login' , {
-    ...values,
-    rememberMe : values.rememberMe ? 1 : 0
-  }).then(res => {
-    console.log(res);
+  try{
+    const res = LoginServices(values)
     if(res.status === 200){
       localStorage.setItem('loginToken' , JSON.stringify(res.data))
       navigate('/')
-      submitMethods.isSubmitting(false)
     }else{
-      swal("خطا", res.data.message, "error");
-      submitMethods.isSubmitting(false)
+      swal("متاسفم", res.data.message, "error");
     }
-  }).catch(e =>{
-
-  })
+    submitMethods.setSubmitting(false)
+  }catch(error){
+    swal("خطا", "اتفاق بدی افتاده است" , "error");
+    submitMethods.setSubmitting(false)
+  }
 };
+
 const validationSchema = Yup.object({
   phone: Yup.number().required("پر کردن این فیلد اجباری است !"),
   password: Yup.string()
@@ -50,7 +48,6 @@ const Login = () => {
       validationSchema={validationSchema}
     >
       {(formik) => {
-        console.log(formik);
         return (
           <>
             {/* <!-- input form --> */}

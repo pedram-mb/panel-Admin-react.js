@@ -6,7 +6,6 @@ const RightContent = () => {
 
   const HandleShowSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log(showSidebar);
   };
 
   return (

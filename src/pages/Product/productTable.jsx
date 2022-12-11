@@ -54,7 +54,6 @@ const ProductTable = ()=>{
       ];
 
       const aditionalElements = (itemId)=>{
-        console.log(itemId);
         return(
             <>
                 <i className="bi bi-x-square"></i>
